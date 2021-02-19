@@ -16,23 +16,22 @@
         <tr>
             <td>Weather</td>
             <td><a href="https://www.geonames.org/export/JSON-webservices.html#weatherJSON">Desc</a></td>
-            <td><button id="getWeather">Try</button></td>
+            <td><a href="getWeather.php">try</a></td>
         </tr>
         <tr>
             <td>CountryCode</td>
             <td><a href="https://www.geonames.org/export/web-services.html#countrycode">DESC</a></td>
-            <td><button id="getCountryCode">Try</button></td>
+            <td><a href="getCountryCode.php">try</a></td>
         </tr>
         <tr>
             <td>Timezone</td>
             <td><a href="https://www.geonames.org/export/web-services.html#timezone">DESC</a></td>
-            <td><button id="getTimeZone">Try</button></td>
+            <td><a href="getTimeZone.php">try</a></td>
         </tr>
         
     </table>
     <div id="result"></div>
-    <script src="libs/js/jquery-2.2.3.min.js"></script>
-    <script src="libs/js/scripts.js"></script>
+    
     
 </body>
 </html>
