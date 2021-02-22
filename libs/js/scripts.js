@@ -13,9 +13,11 @@ $('#getWeather').click(()=>{
         success:(res)=>{
             //console.log(res)
             if(res.status.name=="ok"){
+                console.log(res.data[0])
                 typeof res.data[0]!=="undefined"?
-                $('#result').html(`clouds:${JSON.stringify(res.data[0].clouds)}\ntemperature:${res.data[0].temperature} Celsius`):
+                $('#result').html(`clouds:${res.data[0].clouds}\ntemperature:${res.data[0].temperature} Celsius`):
                 $('#result').html(`No search result`)
+              console.log(typeof res.data[0])
 
             }
         },
