@@ -13,9 +13,9 @@ $('#getWeather').click(()=>{
         success:(res)=>{
             //console.log(res)
             if(res.status.name=="ok"){
-                !res.data.message?
+                typeof res.data[0]!=="undefined"?
                 $('#result').html(`clouds:${JSON.stringify(res.data[0].clouds)}\ntemperature:${JSON.stringify(res.data[0].temperature).split('\"')[1]} Celsius`):
-                $('#result').html(`${res.data.message}`)
+                $('#result').html(`No search result`)
 
             }
         },
@@ -39,10 +39,9 @@ $('#getCountryCode').click(()=>{
         success:(res)=>{
             console.log(res)
             if(res.status.name=="ok"){
-                !res.data.message?
-                $('#result').html(`the country of lat: ${lat},lng: ${lng} is ${JSON.stringify(res.data.countryName).split('\"')[1]} and it\'s contry code is ${JSON.stringify(res.data.countryCode).split('\"')[1]}.`):
-                $('#result').html(`${res.data.message}`)
-
+               typeof res.data.status !="object"?
+               $('#result').html(`the country of lat: ${lat},lng: ${lng} is ${res.data.countryName} and it\'s contry code is ${res.data.countryName}.`):
+               $('#result').html(`${res.data.status.message}`)
             }
         },
         error:()=>{
@@ -65,8 +64,9 @@ $('#getTimeZone').click(()=>{
         success:(res)=>{
             console.log(res)
             if(res.status.name=="ok"){
-                $('#result').html(`the country of lat: ${lat},lng: ${lng} is ${JSON.stringify(res.data.countryName).split('\"')[1]} and it\'s contry code is ${JSON.stringify(res.data.countryCode).split('\"')[1]} and the time is ${JSON.stringify(res.data.time).split('\"')[1]}.`)
-                console.log(res.data[0])
+                typeof res.data.countryName !=="undefined"?
+                $('#result').html(`the country of lat: ${lat},lng: ${lng} is ${res.data.countryName} and it\'s contry code is ${res.data.countryCode} and the time is ${res.data.time}.`):
+                $('#result').html(`No search result`)
 
             }
         },
